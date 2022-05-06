@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import {useState, useEffect} from 'react';
+
 import './App.css';
+import * as l from './Resources/languages';
+import Landing from './Sections/Landing';
+import Projects from './Sections/Projects';
+
+
 
 function App() {
+
+  const [lang, setLang] = useState(document.querySelector('html').lang || "en");
+
+  useEffect(() => {
+    if(! l[lang]){
+      setLang('en');
+      console.log('language not found');
+    }
+  }, []);
+
+  let changeLanguage = () => {
+    if(lang === 'en'){
+      setLang('fr');
+      return;
+    }
+    setLang('en');
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Landing/>
+      <Projects/>
+      <p>coucou pas landing</p>
     </div>
   );
 }
