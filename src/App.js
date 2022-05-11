@@ -1,9 +1,11 @@
 import {useState, useEffect} from 'react';
 
 import './App.css';
+import Navbar from './Components/Navbar';
 import * as l from './Resources/languages';
 import Landing from './Sections/Landing';
 import Projects from './Sections/Projects';
+
 
 
 
@@ -29,6 +31,7 @@ function App() {
   return (
     <div className="App">
       <Landing/>
+      <Navbar/>
       <Projects/>
       <p>coucou pas landing</p>
     </div>

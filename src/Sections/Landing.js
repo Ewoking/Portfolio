@@ -8,13 +8,19 @@ import france from "../Resources/pictures/fr.png";
 import usUk from "../Resources/pictures/us-uk.png";
 import {ReactComponent as Linkedin} from "../Resources/pictures/linkedin.svg";
 import {ReactComponent as CaretDown} from "../Resources/pictures/caret-down.svg";
+import Navbar from '../Components/Navbar';
 
 
 
 const Landing = (props) => {
     
+    const scrollTo = (e,id) => {
+        e.preventDefault();
+        document.querySelector("#" + id).scrollIntoView({behavior: 'smooth'});
+    }
+
     return (
-        <section className="landing">
+        <section className="landing" id="landing">
             <div className="landing-main">
                 <div>
                     <h1>Thomas<br/>Tenot</h1>
@@ -34,7 +40,7 @@ const Landing = (props) => {
                         <img src={usUk} alt="" />
                     </div>
                 </div>
-                <div className="see-work-container">
+                <div className="see-work-container" onClick={(e)=> {scrollTo(e, "projects")}}>
                     <div className="circle-container">
                         <div className="circle"></div>
                         <p>{props.display.content.landing.seeWork}</p>
@@ -47,6 +53,9 @@ const Landing = (props) => {
                     <Linkedin className="linkedin-logo"/>
                 </div>
             </div>
+            {/* <div className="navbar-container">
+                <Navbar/>
+            </div> */}
         </section>
     )
 }

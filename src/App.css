@@ -5,6 +5,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 :root{
@@ -13,6 +16,8 @@
     --highlight: #FFC053;
     --background: #F3F3F3;
     --font: #535250;
+    --react: #00D4FF;
+    --express: #20B800;
 
 }
 
@@ -27,12 +32,26 @@ button {
 }
 
 
+
+
 /* ----- DESKTOP ----- */
 
 body {
     background-color: var(--background);
 }
 
+h2 {
+    font-size: 6rem;
+    margin: 3rem 15%;
+    color: var(--font);
+    font-weight: 500;
+}
+
+/* - PSEUDO CLASSES - */
+
+
+
+/* --- SECTIONS --- */
 /* -- LANDING -- */
 
 .landing {
@@ -135,6 +154,7 @@ body {
 
 .language-btn img {
     margin: 0.4rem;
+    height: 2.6rem;
     border: 1px solid black;
 }
 
@@ -185,7 +205,6 @@ body {
     fill: white;
     width: 5rem;
     z-index: 2;
-    /* margin-top: 2rem; */
 }
 
 .linkedin-btn {
@@ -210,5 +229,255 @@ body {
     height: 66%;
     margin-left: 2rem;
 }
+
+
+/* -- PROJECTS -- */
+
+.project h3 {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: calc(-3rem + 7vw);
+}
+
+.project p {
+    font-size: 1.8rem ;
+}
+
+.project .presentation {
+    display: flex;
+    width: 100%;
+    color: var(--font);
+    background-color: white;
+    padding: 3rem 15%;
+    padding-bottom: 8rem ;
+}
+
+.project .design {
+    width: 120%;
+    display: flex;
+    margin-left: 2rem
+}
+
+.project .tech-logos {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center;
+    margin: 0 1rem;
+}
+
+.project .tech-logos .react-tech {
+    color: var(--react);
+}
+
+.project .tech-logos .react-tech svg {
+    fill: var(--react);
+}
+
+
+.project .tech-logos .express-tech {
+    color: var(--express);
+    margin-top: 2rem;
+}
+
+.project .tech-logos .express-tech * {
+    fill: var(--express);
+}
+
+
+.project .tech-logos p {
+    font-size: 1.2rem;
+}
+
+.project svg {
+    width: 3rem;
+}
+
+.project .illustration{
+    display: flex;
+    align-items: center;
+}
+
+.project img {
+    width: 100%;
+    min-width: 350px;
+    border-radius: 0.5rem;
+}
+
+.project .details {
+    margin: 0 15%;
+}
+
+.project .details-banner {
+    background-color: var(--primary);
+    border-radius: 1rem;
+    transform: translateY(-6rem);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    overflow: hidden;
+    color: white;
+    padding: 0 10%;
+}
+
+.project .detail-link {
+    margin: 1.5rem 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.project .detail-link * {
+    fill: white;
+}
+
+.project .detail-button {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    width: 60%;
+    height: fit-content;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+.project .detail-button svg {
+    width: 100%;
+    max-width: 500px;
+    /* height: max-content; */
+    transform: translateY(9%);
+    stroke-width: 5px;
+}
+
+.project .detail-button p {
+    position: absolute;
+    font-size: 2.5rem;
+    margin-bottom: min(0.5vw, 0.7rem);
+}
+
+
+.side-projects {
+    padding: 3rem 15%;
+    background-color: white;
+    display: flex;
+    height: 27rem;
+}
+
+.side-projects .infos {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 1.8rem;
+    color: var(--font);
+
+}
+
+.side-projects .infos .presentation {
+}
+
+.side-projects .infos .catch-phrase {
+    text-align: right;
+}
+
+
+
+
+/* --- COMPONENTS --- */
+
+/* -- NAVBAR -- */
+
+.navbar-container{
+    /* display: none; */
+    position: sticky;
+    height: 5rem;
+    overflow: visible;
+    top: 0;
+}
+
+.navbar {
+    height: 100vh;
+    width: 10%;
+    border-right: 1px solid black;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+}
+
+.navbar-logo {
+    fill: var(--font);
+    margin: 15% 0;
+    height: 3rem;
+    max-width: 70%;
+}
+
+.react-logo {
+    stroke: var(--font);
+    stroke-width: 5px;
+    scale: 1.2;
+}
+
+/* -- SNAKE CARD -- */
+
+.snake-card {
+    background-color: var(--primary);
+    border-radius: 1rem;
+    text-align: center;
+    height: 150%;
+    padding: 1.5rem 2rem;
+    color: white;
+}
+
+.snake-card h4 {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.snake-card .snake-illustration {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.snake-card .snake-illustration img {
+    display: block;
+    border-radius: 50%;
+    width: 100%;
+    padding: 3rem;
+}
+
+.snake-card .snake-illustration .circle {
+    position: absolute;
+    box-sizing: border-box;
+    border: 0.4rem solid white ;
+    width: 80%;
+    aspect-ratio: 1;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(1);
+    animation: pulse 1.5s infinite ease-in-out alternate;
+    /* -moz-animation: pulse 1.5s ease-in-out infinite alternate; */
+}
+
+@keyframes pulse {
+    from {transform: translate(-50%,-50%) scale(1) }
+    to {transform: translate(-50%,-50%) scale(1.1)}
+}
+
+
+
+
+
+
+
 
 

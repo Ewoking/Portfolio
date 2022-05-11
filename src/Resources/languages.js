@@ -3,7 +3,7 @@ module.exports = {
         landing:{
             title: "Home",
             subtitle: "Fullstack Web Developer",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            description: "Mostly developing in Javascript, I use React with Redux on the front-end and NodeJS with Express for the back-end. I am used to make my databases with MySQL or MongoDB.",
             logosAlt : "logos of React NodeJS and Redux",
             seeWork : "SEE MY WORK",
             linkedin : "Find me on :"
@@ -11,7 +11,7 @@ module.exports = {
         projects:{
             title: "Projects",
             detailBanner: {
-                website: "website"
+                website: "Website"
             },
             project1:{
                 title: "Tom's Blog",
@@ -60,9 +60,10 @@ module.exports = {
             },
             sideProjects: {
                 presentation: "Besides my web projects, I also experimented other formats. I developped a small picture scraping software that I deployed on Windows, as well as a Snake game",
-                snakeCatchPhrase: "The famous game we all know\nTry it out !",
+                snakeCatchPhrase: ["The famous game we all know", "Try it out !"],
                 snakeCard:{
                     title: "Snake",
+                    snakeAlt: "Screenshot of the snake",
                     details: "Vanilla Javascript with use of classes"
                 }
             }
