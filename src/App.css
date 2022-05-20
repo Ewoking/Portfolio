@@ -177,13 +177,22 @@ h2 {
     margin-bottom: 1rem;
 }
 
-.see-work-container .circle-container {
+.see-work-container .strip-container {
     position: relative;
     overflow: hidden;
-
+    cursor: pointer;
 }
 
-.see-work-container .circle {
+.hovering {
+    animation: 0.7s hover infinite alternate ease-in-out;
+}
+@keyframes hover {
+    from{transform: translateY(0);}
+    to{transform: translateY(-1rem);}
+}
+
+
+/* .see-work-container .circle {
     position: absolute;
     width: 100%;
     height: 0;
@@ -192,9 +201,23 @@ h2 {
     border-radius: 50%;
     bottom: 0;
     z-index: 1;
+} */
+
+.see-work-container .strip {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    fill:var(--primary);
+    fill-opacity: 1;
+    /* stroke:  black;
+    stroke-width: 3px; */
 }
 
-.circle-container p {
+
+
+.see-work-container .strip-container p {
     position: relative;
     color: white;
     white-space: nowrap;
@@ -479,6 +502,10 @@ h2 {
     outline: none;
 }
 
+.contact-form .input::placeholder{
+    font-style: italic;
+}
+
 .contact-form .input:focus {
     border-bottom:2px solid var(--react);
     box-shadow: 0 1px 0 var(--react) ;
@@ -502,7 +529,7 @@ h2 {
 
 .contact-form .message-container .subject-input {
     margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
+    padding: 0 1rem 0.5rem 1rem;
     border-bottom: 2px solid var(--font);
     width: 100%;
 }
@@ -685,7 +712,7 @@ h2 {
     left: 50%;
     border-radius: 50%;
     transform: translate(-50%,-50%) scale(1);
-    animation: pulse 1.5s infinite ease-in-out alternate;
+    animation: pulse 1s infinite ease-in-out alternate;
     /* -moz-animation: pulse 1.5s ease-in-out infinite alternate; */
 }
 

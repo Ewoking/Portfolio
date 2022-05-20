@@ -3,7 +3,7 @@ module.exports = {
         landing:{
             title: "Home",
             subtitle: "Fullstack Web Developer",
-            description: "Mostly developing in Javascript, I use React with Redux on the front-end and NodeJS with Express for the back-end. I am used to make my databases with MySQL or MongoDB.",
+            description: "Mostly developing in Javascript, I use React with Redux on the front-end and NodeJS with Express for the back-end. I am used to build databases with MySQL or MongoDB.",
             logosAlt : "logos of React NodeJS and Redux",
             seeWork : "SEE MY WORK",
             linkedin : "Find me on :"

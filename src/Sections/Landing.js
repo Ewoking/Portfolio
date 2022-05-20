@@ -8,6 +8,7 @@ import france from "../Resources/pictures/fr.png";
 import usUk from "../Resources/pictures/us-uk.png";
 import {ReactComponent as Linkedin} from "../Resources/pictures/linkedin.svg";
 import {ReactComponent as CaretDown} from "../Resources/pictures/caret-down.svg";
+import {ReactComponent as Strip} from "../Resources/pictures/strip.svg";
 import Navbar from '../Components/Navbar';
 
 
@@ -19,6 +20,14 @@ const Landing = (props) => {
         document.querySelector("#" + id).scrollIntoView({behavior: 'smooth'});
     }
 
+    const onMouseEnter = () => {
+        document.querySelector(".caret-down").classList.add("hovering");
+    }
+
+    const onMouseLeave = () => {
+        document.querySelector(".caret-down").classList.remove("hovering");
+    }
+    
     return (
         <section className="landing" id="landing">
             <div className="landing-main">
@@ -41,8 +50,9 @@ const Landing = (props) => {
                     </div>
                 </div>
                 <div className="see-work-container" onClick={(e)=> {scrollTo(e, "projects")}}>
-                    <div className="circle-container">
-                        <div className="circle"></div>
+                    <div className="strip-container" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+                        <Strip className="strip"/>
+                        {/* <div className="circle"></div> */}
                         <p>{props.display.content.landing.seeWork}</p>
                         <CaretDown className="caret-down"/>
                     </div>
@@ -53,9 +63,6 @@ const Landing = (props) => {
                     <Linkedin className="linkedin-logo"/>
                 </div>
             </div>
-            {/* <div className="navbar-container">
-                <Navbar/>
-            </div> */}
         </section>
     )
 }

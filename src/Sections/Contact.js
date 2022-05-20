@@ -22,7 +22,7 @@ const Contact = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-
+        
         if(emailStatus === "sent") return;
         
         let emailPattern = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -76,7 +76,10 @@ const Contact = (props) => {
         //return console.log('UI TEST ONLY : sending email')
         
         // -----------------------------------------
+
         if(!subject) subject = "New Message from " + name;
+
+        message = message.split('\n').join('<br/>');
 
         let data = {
             service_id: "service_xeqn3me",
