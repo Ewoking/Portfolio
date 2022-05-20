@@ -3,6 +3,8 @@ import {useState, useEffect} from 'react';
 import './App.css';
 import Navbar from './Components/Navbar';
 import * as l from './Resources/languages';
+import About from './Sections/About';
+import Contact from './Sections/Contact';
 import Landing from './Sections/Landing';
 import Projects from './Sections/Projects';
 
@@ -18,7 +20,7 @@ function App() {
       setLang('en');
       console.log('language not found');
     }
-  }, []);
+  }, [lang]);
 
   let changeLanguage = () => {
     if(lang === 'en'){
@@ -33,7 +35,8 @@ function App() {
       <Landing/>
       <Navbar/>
       <Projects/>
-      <p>coucou pas landing</p>
+      <About/>
+      <Contact/>
     </div>
   );
 }

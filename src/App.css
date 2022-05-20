@@ -18,6 +18,7 @@
     --font: #535250;
     --react: #00D4FF;
     --express: #20B800;
+    --green: #1FA83A;
 
 }
 
@@ -49,6 +50,9 @@ h2 {
 
 /* - PSEUDO CLASSES - */
 
+.hidden {
+    visibility: hidden;
+}
 
 
 /* --- SECTIONS --- */
@@ -372,6 +376,7 @@ h2 {
     align-items: flex-end;
     font-size: 1.8rem;
     color: var(--font);
+    margin-right: 3rem;
 
 }
 
@@ -382,6 +387,220 @@ h2 {
     text-align: right;
 }
 
+
+/* -- ABOUT -- */
+
+.about-content {
+    background-color: white;
+    padding: 7rem 15%;
+    display: flex;
+}
+
+.about-content .infos p {
+    font-size: 1.8rem;
+    color: var(--font);
+    margin-bottom: 1.5rem;
+}
+
+.about-content .infos {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+.about-content .formation-logos {
+    flex-grow: 3;
+    display: flex;
+    margin-top: 5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    
+}
+
+.formation-logos .logo-container{
+
+}
+
+.formation-logos .logo-container img{
+    height: 4vw;
+}
+
+.about-resume {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.about-resume img {
+    width: 100%;
+    object-fit: contain;
+    border: 0.5rem solid var(--background);
+}
+
+.about-resume button {
+    width: 100%;
+    height: 4rem;
+    background-color: var(--background);
+    border-radius: 2rem;
+    margin: 1rem 0;
+    font-size: 1.4rem;
+}
+
+/* -- CONTACT -- */
+
+.form-container {
+    padding: 7rem 15%;
+    background-color: white;
+}
+
+.contact-form {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.8rem;
+}
+
+.contact-form label {
+    margin: 0 auto 0 2rem;
+    font-size: 1.8rem;
+    color: var(--font);
+}
+
+.contact-form .input {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3rem;
+    outline: none;
+}
+
+.contact-form .input:focus {
+    border-bottom:2px solid var(--react);
+    box-shadow: 0 1px 0 var(--react) ;
+    /* background-color: rgb(246, 246, 246); */
+}
+
+
+.contact-form .email-input{
+    width: 80%;
+    min-width: min(35rem, calc(100% - 4rem));
+    align-self: flex-start;
+    margin-left: 2rem;
+}
+
+.contact-form .name-input{
+    width: 50%;
+    min-width: min(25rem, calc(100% - 4rem));
+    align-self: flex-start;
+    margin-left: 2rem;
+}
+
+.contact-form .message-container .subject-input {
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--font);
+    width: 100%;
+}
+
+.contact-form .message-container .subject-input:focus {
+    border-bottom:2px solid var(--react);
+    box-shadow: 0 1px 0 var(--react) ;
+}
+
+.contact-form .message-container .message-area {
+    width: 100%;
+    height: 15rem;
+    border-radius: 1.1rem;
+    padding: 1rem;
+}
+
+.contact-form .message-container .message-area:focus {
+    border:3px solid var(--react);
+}
+
+.contact-form button {
+    background-color: var(--background);
+    /* background-color: var(--green); */
+    font-size: 1.8rem;
+    color: var(--font);
+    padding: 0 2rem;
+    height: 4rem;
+    border-radius: 2rem;
+}
+
+.contact-form > input[type="text"] {
+    border: 0;
+    border-bottom:2px solid var(--font);
+}
+
+.contact-form > input[type="email"] {
+    border: 0;
+    border-bottom:2px solid var(--font);
+}
+
+.contact-form .message-container {
+    border: 2px solid var(--font);
+    width: 100%;
+    border-radius: 2rem;
+    padding: 1rem;
+    background-color: var(--background);
+}
+
+.contact-form .message-container * {
+    border: 0;
+    resize: none;
+    background-color: var(--background);
+}
+
+
+.contact-form .error-container {
+    margin: 0 auto 1rem 2rem;
+    color: red;
+    font-size: 1rem;
+}
+
+.contact-form .display-container {
+    margin-bottom: 0.5rem;
+    color: var(--green);
+    font-size: 1.2rem;
+}
+
+.contact-form .confirmation-logo {
+    width: 4rem;
+}
+
+.contact-form .confirmation-logo svg {
+    fill: var(--green);
+}
+
+.contact-form .loading-logo {
+    width: 4rem;
+    height: 4rem;
+    animation: spin 1s linear infinite ;
+}
+
+
+@keyframes spin {
+    from {transform: rotate(0);}
+    to {transform: rotate(360deg);}
+}
+
+.contact-form .error-logo {
+    width: 4rem;
+}
+
+.contact-form .error-logo svg {
+    fill: red;
+}
+
+.red p {
+    color: red;
+}
 
 
 
@@ -431,13 +650,15 @@ h2 {
     background-color: var(--primary);
     border-radius: 1rem;
     text-align: center;
-    height: 150%;
-    padding: 1.5rem 2rem;
+    min-width: 25rem;
+    /* height: 140%; */
+    height: fit-content;
+    padding: 1.5rem 3rem;
     color: white;
 }
 
 .snake-card h4 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 500;
 }
 
@@ -451,14 +672,14 @@ h2 {
     display: block;
     border-radius: 50%;
     width: 100%;
-    padding: 3rem;
+    padding: 5rem;
 }
 
 .snake-card .snake-illustration .circle {
     position: absolute;
     box-sizing: border-box;
     border: 0.4rem solid white ;
-    width: 80%;
+    width: 65%;
     aspect-ratio: 1;
     top: 50%;
     left: 50%;
@@ -473,9 +694,25 @@ h2 {
     to {transform: translate(-50%,-50%) scale(1.1)}
 }
 
+.snake-card .github-link {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    transform: translateY(-3rem);
+}
 
+.snake-card .github-link svg {
+    width: 3rem;
+}
 
+.snake-card .github-link svg *{
+    fill: white;
+}
 
+.snake-card > p {
+    text-align: left;
+    font-size: 1.2rem;
+}
 
 
 

@@ -70,15 +70,25 @@ module.exports = {
             
 
         },
-        About:{
+        about:{
             title: "About Me",
-            presentation: "Graduated from 3WA School as a Fullstack Web Developer, I also have a Bachelor's degree in Mechanics that allowed me to enter the Engineering course at the Ecole Nationale Supérieure des Arts et Métiers (ENSAM).\n\nComing from a scientific training, I like to solve problems. Whether it is in algorithmics or ergonomic considerations, I like challenges and i'm always inclined to propose solutions.",
+            presentation: ["Graduated from 3WA School as a Fullstack Web Developer, I also have a Bachelor's degree in Mechanics that allowed me to enter the Engineering course at the Ecole Nationale Supérieure des Arts et Métiers (ENSAM).", "Coming from a scientific training, I like to solve problems. Whether it is in algorithmics or ergonomic considerations, I like challenges and i'm always inclined to propose solutions."],
             download: "Download my resume"
         },
-        Contact:{
+        contact:{
             title: "Contact",
-            email: "Your email",
-            message: "Your message"
+            name: "Enter your name",
+            subject: "Subject (optional)",
+            email: "Enter your email",
+            message: "Your message to me",
+            send: "Send",
+            validation : {
+                nameError: "Please enter your name",
+                emailError: "Enter a valid email address",
+                messageError: "Please write a message",
+                emailSent: "Your email has been sent successfully !",
+                emailNotSent: "The email could not be sent - Please try again later"
+            }
         }
     },
     fr:{
