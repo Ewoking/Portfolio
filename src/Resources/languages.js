@@ -27,7 +27,7 @@ module.exports = {
                         ]
                     },
                     tech: {
-                        title: "Methods & Technologies",
+                        title: "Technologies & Techniques",
                         techList: [
                             "Password hashing with Bcrypt",
                             "authentication token generation with JWT and local storage usage",
@@ -51,7 +51,7 @@ module.exports = {
                         ]
                     },
                     tech: {
-                        title: "Methods & Technologies",
+                        title: "Technologies & Techniques",
                         techList: [
                             "Progressive display of the galery with Intersection Observers"
                         ]
@@ -59,7 +59,7 @@ module.exports = {
                 }
             },
             sideProjects: {
-                presentation: "Besides my web projects, I also experimented other formats. I developped a small picture scraping software that I deployed on Windows, as well as a Snake game",
+                presentation: "Besides my web projects, I also experimented other formats. I developped a small picture scraping software that I deployed on Windows, as well as a Snake game.",
                 snakeCatchPhrase: ["The famous game we all know", "Try it out !"],
                 snakeCard:{
                     title: "Snake",
@@ -72,6 +72,7 @@ module.exports = {
         },
         about:{
             title: "About Me",
+            titleAlt: "About",
             presentation: ["Graduated from 3WA School as a Fullstack Web Developer, I also have a Bachelor's degree in Mechanics that allowed me to enter the Engineering course at the Ecole Nationale Supérieure des Arts et Métiers (ENSAM).", "Coming from a scientific training, I like to solve problems. Whether it is in algorithmics or ergonomic considerations, I like challenges and i'm always inclined to propose solutions."],
             download: "Download my resume"
         },

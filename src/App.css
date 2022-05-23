@@ -334,9 +334,11 @@ h2 {
 
 .project .details {
     margin: 0 15%;
+    position: relative;
 }
 
 .project .details-banner {
+    position: relative;
     background-color: var(--primary);
     border-radius: 1rem;
     transform: translateY(-6rem);
@@ -346,6 +348,7 @@ h2 {
     overflow: hidden;
     color: white;
     padding: 0 10%;
+    z-index: 2;
 }
 
 .project .detail-link {
@@ -368,6 +371,7 @@ h2 {
     height: fit-content;
     margin-top: auto;
     cursor: pointer;
+    user-select: none;
 }
 
 .project .detail-button svg {
@@ -382,6 +386,53 @@ h2 {
     position: absolute;
     font-size: 2.5rem;
     margin-bottom: min(0.5vw, 0.7rem);
+}
+
+.project .drop-down {
+    position: relative;
+    height: 0;
+    min-height: 0;
+    width: 100%;
+    transform: scaleY(1) translateY(-7rem);
+    background-color: white;
+    border-radius: 0 0 1rem 1rem;
+    border: 5px solid var(--primary);
+    overflow: hidden;
+    transition: min-height 0.7s ease-in-out;
+}
+
+.project .drop-down-content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 3rem 10% 3rem 10%;
+    display: flex;
+    justify-content: space-between;
+    list-style: inside;
+}
+
+.project .drop-down-content ul {
+    margin: 0 0.5rem;
+    color: var(--font);
+    font-family: 'Open Sans', 'sans-serif';
+    font-size: 1.2rem;
+}
+
+.project .drop-down-content ul h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.7rem;
+    font-weight: 500;
+}
+
+.project .drop-down-content ul li {
+    line-height: 1.8rem;
+}
+
+.project .drop-down.opened {
+    /* transform: scaleY(0) translateY(-7rem); */
+    min-height: fit-content;
+    transition: min-height 0.7s ease-in-out ;
 }
 
 
@@ -660,9 +711,24 @@ h2 {
 
 .navbar-logo {
     fill: var(--font);
-    margin: 15% 0;
+    margin-top: 15%;
     height: 3rem;
     max-width: 70%;
+}
+
+.navbar h4 {
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: 600;
+    color: var(--font);
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.7s;
+}
+
+.navbar h4.nav-hidden{
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    transition: all 0.7s;
 }
 
 .react-logo {
