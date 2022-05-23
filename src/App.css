@@ -32,7 +32,10 @@ button {
 	outline: inherit;
 }
 
-
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
 
 /* ----- DESKTOP ----- */
@@ -151,6 +154,7 @@ h2 {
 }
 
 .language-btn {
+    position: relative;
     margin-top: 2rem;
     display: flex;
     flex-wrap: nowrap;
@@ -159,7 +163,22 @@ h2 {
 .language-btn img {
     margin: 0.4rem;
     height: 2.6rem;
+    width: 40%;
     border: 1px solid black;
+}
+
+.lang-indicator {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    border: 2px solid var(--font);
+    transform: translateX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.en-selected {
+    transform: translateX(100%);
 }
 
 .see-work-container {
@@ -356,6 +375,8 @@ h2 {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    cursor: pointer;
+    user-select: none;
 }
 
 .project .detail-link * {
@@ -514,13 +535,17 @@ h2 {
     border: 0.5rem solid var(--background);
 }
 
-.about-resume button {
+.about-resume a {
+    display: table-cell;
     width: 100%;
-    height: 4rem;
+    /* height: 4rem; */
+    padding: 1rem 0;
     background-color: var(--background);
     border-radius: 2rem;
     margin: 1rem 0;
     font-size: 1.4rem;
+    text-align: center;
+    
 }
 
 /* -- CONTACT -- */
@@ -779,6 +804,7 @@ h2 {
     border-radius: 50%;
     transform: translate(-50%,-50%) scale(1);
     animation: pulse 1s infinite ease-in-out alternate;
+    cursor: pointer;
     /* -moz-animation: pulse 1.5s ease-in-out infinite alternate; */
 }
 

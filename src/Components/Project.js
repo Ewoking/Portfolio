@@ -60,25 +60,29 @@ const Project = (props) => {
                         
                     </div>
                     <div className="illustration">
-                        <img src={photo} alt="" />
+                        <img src={photo} alt={props.display.content.projects[props.id].altPicture} />
                     </div>
                 </div>
             </div>
             <div className="details">
                 <div className="details-content"></div>
                 <div className="details-banner">
-                    <div className="github-link detail-link">
-                        <GithubLogo/>
-                        <p>Github</p>
-                    </div>
+                    <a href={props.display.content.projects[props.id].links.github}>
+                        <div className="github-link detail-link">
+                            <GithubLogo/>
+                            <p>Github</p>
+                        </div>
+                    </a>
                     <div className="detail-button" onClick={toggleDropDown}>
                         <DetailCurveWeb/>
                         <p>Details</p>
                     </div>
-                    <div className="website-link detail-link">
-                        <SquareArrow/>
-                        <p>{props.display.content.projects.detailBanner.website}</p>
-                    </div>
+                    <a href={props.display.content.projects[props.id].links.website}>
+                        <div className="website-link detail-link">
+                            <SquareArrow/>
+                            <p>{props.display.content.projects.detailBanner.website}</p>
+                        </div>
+                    </a>
                 </div>
                 <div className="drop-down">
                     <div className="drop-down-content">

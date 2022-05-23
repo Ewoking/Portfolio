@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import {switchLanguage, switchTheme} from '../actions/display/displayActions';
 import logos from "../Resources/pictures/logos.svg";
 import  {ReactComponent as Moon} from "../Resources/pictures/moon.svg";
@@ -9,11 +9,28 @@ import usUk from "../Resources/pictures/us-uk.png";
 import {ReactComponent as Linkedin} from "../Resources/pictures/linkedin.svg";
 import {ReactComponent as CaretDown} from "../Resources/pictures/caret-down.svg";
 import {ReactComponent as Strip} from "../Resources/pictures/strip.svg";
-import Navbar from '../Components/Navbar';
 
 
 
 const Landing = (props) => {
+
+    useEffect(() => {
+        let langIndictaor = document.querySelector(".lang-indicator");
+        if(props.display.lang === "en") {
+            langIndictaor.classList.add("en-selected");
+        }
+    }, [])
+
+    const onChangeLanguage = () => {
+        let langIndictaor = document.querySelector(".lang-indicator");
+
+        if(props.display.lang === "en") {
+            langIndictaor.classList.remove("en-selected");
+        }else{
+            langIndictaor.classList.add("en-selected");
+        }
+        props.switchLanguage();
+    }
     
     const scrollTo = (e,id) => {
         e.preventDefault();
@@ -44,9 +61,10 @@ const Landing = (props) => {
                         <Moon className="moon-logo theme-logo"/>
                         <Sun className="sun-logo theme-logo"/>
                     </div>
-                    <div className="language-btn">
-                        <img src={france} alt="" />
-                        <img src={usUk} alt="" />
+                    <div className="language-btn" onClick={onChangeLanguage}>
+                        <img id='flag-id-fr' src={france} alt="" />
+                        <img id='flag-id-en' src={usUk} alt="" />
+                        <div className="lang-indicator"></div>
                     </div>
                 </div>
                 <div className="see-work-container" onClick={(e)=> {scrollTo(e, "projects")}}>

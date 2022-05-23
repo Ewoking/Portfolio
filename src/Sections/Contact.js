@@ -153,7 +153,7 @@ const Contact = (props) => {
             <h2>{props.display.content.contact.title}</h2>
             <div className="form-container">
                 <form className="contact-form" action="">
-                    <label>Name</label>
+                    <label>{props.display.content.contact.labels.name}</label>
                     <input  type="text"
                             className="name-input input" 
                             placeholder={props.display.content.contact.name}
@@ -165,7 +165,7 @@ const Contact = (props) => {
                     <div className="name-error error-container hidden">
                         <p>{props.display.content.contact.validation.nameError}</p>
                     </div>
-                    <label>Email</label>
+                    <label>{props.display.content.contact.labels.email}</label>
                     <input  type="email" 
                             className="email-input input"
                             placeholder={props.display.content.contact.email}
@@ -177,7 +177,7 @@ const Contact = (props) => {
                     <div className="email-error error-container hidden">
                         <p>{props.display.content.contact.validation.emailError}</p>
                     </div>
-                    <label>Subject & Message</label>
+                    <label>{props.display.content.contact.labels.messageBox}</label>
                     <div className="message-container">
                         <input  type="text" 
                                 className="subject-input input"

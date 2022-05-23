@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {connect} from 'react-redux';
 import upmc from "../Resources/pictures/upmc.png";
 import ensam from "../Resources/pictures/ensam.png";
@@ -8,12 +7,6 @@ import resume from "../Resources/pictures/resume.png";
 
 const About = (props) => {
 
-    // useEffect(() => {
-
-    //     let test = document.querySelector(".test");
-    //     document.querySelector(".target").appendChild(test);
-
-    // }, [])
 
     return(
         <section className="about" id='about'>
@@ -35,8 +28,8 @@ const About = (props) => {
                     </div>
                 </div>
                 <div className="about-resume">
-                    <img src={resume} alt="CV" />
-                    <button>{props.display.content.about.download}</button>
+                    <img src={resume} alt={props.display.content.about.altPicture} />
+                    <a download="ThomasTenot-CV" href={resume}>{props.display.content.about.download}</a>
                 </div>
             </div>
         </section>
