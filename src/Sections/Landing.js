@@ -15,6 +15,8 @@ import {ReactComponent as Strip} from "../Resources/pictures/strip.svg";
 const Landing = (props) => {
 
     useEffect(() => {
+
+        //lang button init 
         let langIndictaor = document.querySelector(".lang-indicator");
         if(props.display.lang === "en") {
             langIndictaor.classList.add("en-selected");
@@ -30,6 +32,27 @@ const Landing = (props) => {
             langIndictaor.classList.add("en-selected");
         }
         props.switchLanguage();
+    }
+
+    const onChangeTheme = () => {
+        document.querySelector(".moon-logo").classList.toggle("theme-selected");
+        document.querySelector(".sun-logo").classList.toggle("theme-selected");
+        document.querySelector(".theme-indicator").classList.toggle("theme-selected");
+    
+        if(!props.display.darkMode) {
+            document.documentElement.style.setProperty('--primary', '#3E2C97');
+            document.documentElement.style.setProperty('--secondary', '#242424');
+            document.documentElement.style.setProperty('--highlight', '#FFC053');
+            document.documentElement.style.setProperty('--background', '#313131');
+            document.documentElement.style.setProperty('--font', '#F3F3F3');
+        }else {
+            document.documentElement.style.setProperty('--primary', '#C13333');
+            document.documentElement.style.setProperty('--secondary', 'white');
+            document.documentElement.style.setProperty('--highlight', '#FFC053');
+            document.documentElement.style.setProperty('--background', '#F3F3F3');
+            document.documentElement.style.setProperty('--font', '#535250');
+        }
+        props.switchTheme();
     }
     
     const scrollTo = (e,id) => {
@@ -57,9 +80,10 @@ const Landing = (props) => {
             </div>
             <div className="landing-banner">
                 <div className="controls">
-                    <div className="theme-btn">
+                    <div className="theme-btn" onClick={onChangeTheme}>
                         <Moon className="moon-logo theme-logo"/>
-                        <Sun className="sun-logo theme-logo"/>
+                        <Sun className="sun-logo theme-logo theme-selected"/>
+                        <div className="theme-indicator"></div>
                     </div>
                     <div className="language-btn" onClick={onChangeLanguage}>
                         <img id='flag-id-fr' src={france} alt="" />

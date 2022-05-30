@@ -182,7 +182,7 @@ module.exports = {
                 }
             },
             sideProjects: {
-                presentation: "A part mes projets web, j'ai aussi pu expérimenter d'autres formats. J'ai développé un petit logiciel de scraping d'images ue j'ai déployé sur Windows, ainsi qu'un jeu de Snake.",
+                presentation: "En dehors de mes projets web, j'ai aussi pu expérimenter d'autres formats. J'ai développé un petit logiciel de scraping d'images ue j'ai déployé sur Windows, ainsi qu'un jeu de Snake.",
                 snakeCatchPhrase: ["Le petit jeu bien connu", "Essayez-le !"],
                 snakeCard:{
                     title: "Snake",
