@@ -7,10 +7,8 @@ import resume from "../Resources/pictures/resume.png";
 
 const About = (props) => {
 
-
-    return(
-        <section className="about" id='about'>
-            <h2>{props.display.content.about.title}</h2>
+    const responsiveDisplay = () => {
+        if(props.media === "DESKTOP") return (<>
             <div className="about-content">
                 <div className="infos">
                     <p>{props.display.content.about.presentation[0]}</p>
@@ -32,6 +30,39 @@ const About = (props) => {
                     <a download="ThomasTenot-CV" href={resume}>{props.display.content.about.download}</a>
                 </div>
             </div>
+        </>)
+        if(props.media === "TABLET" || props.media === "MOBILE") return (<>
+            <div className="about-content">
+                <div className="infos">
+                    <p>{props.display.content.about.presentation[0]}</p>
+                    <p>{props.display.content.about.presentation[1]}</p>
+                </div>
+                <div className="resume-and-logos">
+                    <div className="formation-logos">
+                        <div className="logo-container">
+                            <img src={logo3wa} alt="3wa logo" />
+                        </div>
+                        <div className="logo-container">
+                            <img src={ensam} alt="ensam logo" />
+                        </div>
+                        <div className="logo-container">
+                            <img src={upmc} alt="upmc logo" />
+                        </div>
+                    </div>
+                    <div className="about-resume">
+                        <img src={resume} alt={props.display.content.about.altPicture} />
+                        <a download="ThomasTenot-CV" href={resume}>{props.display.content.about.download}</a>
+                    </div>
+                </div>
+            </div>
+        </>)
+    }
+
+
+    return(
+        <section className="about" id='about'>
+            <h2>{props.display.content.about.title}</h2>
+            {responsiveDisplay()}
         </section>
     )
 }

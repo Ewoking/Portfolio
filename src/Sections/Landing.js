@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {switchLanguage, switchTheme} from '../actions/display/displayActions';
 import logos from "../Resources/pictures/logos.svg";
 import  {ReactComponent as Moon} from "../Resources/pictures/moon.svg";
@@ -14,14 +14,32 @@ import {ReactComponent as Strip} from "../Resources/pictures/strip.svg";
 
 const Landing = (props) => {
 
-    useEffect(() => {
 
+    useEffect(() => {
+        // Setting landing screen Height, needed for mobile (navbar issue)
+        setHeight();
+        window.addEventListener("resize", setHeight);
+        window.addEventListener("orientationchange", setHeight);
+    
         //lang button init 
         let langIndictaor = document.querySelector(".lang-indicator");
         if(props.display.lang === "en") {
             langIndictaor.classList.add("en-selected");
         }
+
+        return () => {
+            window.removeEventListener("resize", setHeight);
+            window.removeEventListener("orientationchange", setHeight);
+        }
     }, [])
+
+
+
+    const setHeight = () => {
+        let landing = document.querySelector(".landing");
+        landing.style.height = window.innerHeight + "px";
+    }
+
 
     const onChangeLanguage = () => {
         let langIndictaor = document.querySelector(".lang-indicator");
@@ -45,12 +63,14 @@ const Landing = (props) => {
             document.documentElement.style.setProperty('--highlight', '#FFC053');
             document.documentElement.style.setProperty('--background', '#313131');
             document.documentElement.style.setProperty('--font', '#F3F3F3');
+            document.documentElement.style.setProperty('--contrast', '#BFBBED');
         }else {
             document.documentElement.style.setProperty('--primary', '#C13333');
             document.documentElement.style.setProperty('--secondary', 'white');
             document.documentElement.style.setProperty('--highlight', '#FFC053');
             document.documentElement.style.setProperty('--background', '#F3F3F3');
             document.documentElement.style.setProperty('--font', '#535250');
+            document.documentElement.style.setProperty('--contrast', '#ffc7be');
         }
         props.switchTheme();
     }
@@ -67,9 +87,9 @@ const Landing = (props) => {
     const onMouseLeave = () => {
         document.querySelector(".caret-down").classList.remove("hovering");
     }
-    
-    return (
-        <section className="landing" id="landing">
+
+    const responsiveDisplay = () => {
+        if(props.media === "DESKTOP") return (
             <div className="landing-main">
                 <div>
                     <h1>Thomas<br/>Tenot</h1>
@@ -78,6 +98,24 @@ const Landing = (props) => {
                 </div>
                 <img src={logos} alt={props.display.content.landing.logosAlt} />
             </div>
+        )
+        if(props.media === "TABLET" || props.media === "MOBILE") return (
+            <div className="landing-main">
+                <div>
+                    <div>
+                        <h1>Thomas<br/>Tenot</h1>
+                        <h3>{props.display.content.landing.subtitle}</h3>
+                    </div>
+                    <img src={logos} alt={props.display.content.landing.logosAlt} />
+                </div>
+                <p>{props.display.content.landing.description}</p>
+            </div>
+        )
+    }
+    
+    return (
+        <section className="landing" id="landing">
+            {responsiveDisplay()}
             <div className="landing-banner">
                 <div className="controls">
                     <div className="theme-btn" onClick={onChangeTheme}>

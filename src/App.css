@@ -12,6 +12,7 @@
 
 :root{
     --primary: #C13333;
+    --contrast: #ffc7be;
     --secondary: white;
     --highlight: #FFC053;
     --background: #F3F3F3;
@@ -57,35 +58,53 @@ h2 {
     visibility: hidden;
 }
 
+.not-displayed {
+    display: none;
+}
+
 
 /* --- SECTIONS --- */
 /* -- LANDING -- */
 
 .landing {
     height: 100vh;
-    min-height: 100vh;
-    max-height: 100vh;
+    /* min-height: 100vh; */
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: fill-available;           /* fall-back */
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: fill-available;
+    max-height: -moz-available;
+    max-height: -webkit-fill-available;
+    max-height: fill-available;
+    /* max-height: 100vh; */
     background-color: var(--secondary);
+    
 }
 
 .landing-main {
     padding: 5rem 10rem;
     display: flex;
     height: 87%;
+    
     background-color: var(--primary);
     border-radius: 0 0 5rem 5rem;
     color: white;
+    overflow: hidden;
+    z-index: 10;
 }
 
 .landing-main div {
     margin-left: 6rem;
     margin-right: 3rem;
+    overflow: hidden;
 }
 
 .landing-main h1 {
     font-family: 'Open Sans', sans-serif;
-    line-height:8vw;
-    font-size: 8vw;
+    line-height: min(8vw, 17vh);
+    font-size: min(8vw, 17vh);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -98,7 +117,7 @@ h2 {
 }
 
 .landing-main h3::before {
-    content: ">";
+    content: "> ";
 }
 
 .landing-main p {
@@ -174,7 +193,7 @@ h2 {
 }
 
 .theme-indicator.theme-selected {
-    transform:  translateX(0) scale(1.05);
+    transform:  translateX(0) scale(1.01);
 }
 
 .language-btn {
@@ -211,8 +230,8 @@ h2 {
     margin: 0 auto;
     left: 0;
     right: 0;
-    height: 20%;
-    width: 22%;
+    height: 16%;
+    width: 50%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -221,9 +240,14 @@ h2 {
 }
 
 .see-work-container .strip-container {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
-    overflow: hidden;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .hovering {
@@ -248,12 +272,14 @@ h2 {
 
 .see-work-container .strip {
     position: absolute;
-    width: 100%;
+    margin: 0 auto;
+    width: 60%;
     left: 0;
     right: 0;
     bottom: 0;
     fill:var(--primary);
     fill-opacity: 1;
+    z-index: 1;
     /* stroke:  black;
     stroke-width: 3px; */
 }
@@ -291,7 +317,7 @@ h2 {
     white-space: nowrap;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 2vw;
 }
 
 .linkedin-btn .linkedin-logo {
@@ -392,6 +418,11 @@ h2 {
     color: white;
     padding: 0 10%;
     z-index: 2;
+    /* box-shadow: 0 0px 0px 2px var(--primary); */
+    border-bottom: 7px solid var(--contrast);
+    /* border-left: 5px dotted var(--contrast); */
+    /* border-top: 5px solid var(--contrast); */
+    
 }
 
 .project .detail-link {
@@ -425,7 +456,7 @@ h2 {
     /* height: max-content; */
     transform: translateY(10%);
     stroke-width: 5px;
-    stroke: var(--background);
+    stroke: var(--contrast);
 }
 
 .project .detail-button p {
@@ -487,6 +518,7 @@ h2 {
     background-color: var(--secondary);
     display: flex;
     height: 27rem;
+    margin-bottom: 7rem;
 }
 
 .side-projects .infos {
@@ -811,6 +843,7 @@ h2 {
     height: fit-content;
     padding: 1.5rem 3rem;
     color: white;
+    border-bottom: 7px solid var(--contrast);
 }
 
 .snake-card h4 {
@@ -872,6 +905,615 @@ h2 {
 }
 
 
+/* ----- TABLET ----- */
 
+/* @media screen and (max-width:1200px), (max-height: 750px) {
+
+
+    /* --- LANDING ---
+    .landing-main {
+        position: relative;
+        padding: 7rem 10%;
+    }
+
+    .landing-main img{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: min(22vw,34vh);
+        margin: 7rem;
+    }
+
+    .landing-main div {
+        margin: 0;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .landing-main h3 {
+        font-size: 1.8rem;
+        margin-bottom: max(10vh,7vw);
+    }
+
+    .landing-main p {
+        font-size: 1.5rem;
+    }
+
+    .navbar {
+        display: none;
+    }
+} */
+
+
+/* ----- TABLET ----- */
+
+@media screen and (max-width: 1200px) {
+
+    h2 {
+        font-size: 4rem;
+        margin: 3rem 5rem;
+    }
+
+    /* --- LANDING --- */
+    /* .landing-main {
+        padding: 2rem;
+        border-radius: 0 0 3rem 3rem;
+    }
+
+    .landing-main div {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        margin: 0 3rem;
+    }
+
+    .landing-main p {
+        font-size: 1.8rem;
+    } */
+
+    .landing-main {
+        padding: 2rem;
+        border-radius: 0 0 3rem 3rem;
+        flex-flow: column nowrap;
+        justify-content: center;
+    }
+
+    .landing-main div {
+        margin: 0;
+    }
+
+    .landing-main>div {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .landing-main p {
+        font-size: 1.8rem;
+        margin: 3rem 0;
+    }
+
+    .landing-banner {
+        padding: 0 3rem;
+    }
+
+    .see-work-container {
+        width: 50%;
+    }
+
+    .see-work-container .strip-container p{
+        font-size: 1.5rem;
+    }
+
+    .linkedin-btn {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+    }
+
+    .linkedin-btn p {
+        font-size: 1.2rem;
+    }
+
+    .linkedin-btn .linkedin-logo {
+        margin: 0;
+        width: 3rem;
+    }
+
+    /* --- PROJECTS --- */
+    .project h3 {
+        margin-bottom: 2.5rem;
+    }
+    .project .presentation {
+        padding: 3rem 5rem;
+        padding-bottom: 7rem;
+    }
+
+    .project .presentation .infos>p {
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    .project .design {
+        width: 100%;
+        margin: 0;
+    }
+
+    .project img {
+        width: 80%;
+        min-width: 0;
+    }
+
+    .project .details {
+        margin: 0 1rem;
+    }
+
+    .project .details-banner {
+        /* border-radius: 2rem; */
+        padding: 0 5%;
+    }
+
+    .project .detail-button {
+        justify-content: center;
+    }
+
+    .project .detail-button p {
+        margin-top: 1rem;
+    }
+
+    .project .drop-down {
+        width: calc(100%);
+        margin: 0 auto;
+    }
+
+    .side-projects {
+        flex-flow: column nowrap;
+        height: 35rem;
+        padding: 5rem 5rem;
+    }
+
+    .side-projects .infos {
+        font-size: 1.5rem;
+        margin: 0;
+        margin-bottom: 3rem;
+    }
+
+    .snake-infos {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .catch-phrase {
+        color: var(--font);
+        font-size: 1.5rem;
+        align-self: center;
+        text-align: end;
+        margin-right: 1rem;
+    }
+
+    .snake-card {
+        width: 20rem;
+        min-width: 0;
+    }
+
+    .snake-card .snake-illustration img {
+        padding: 26%;
+    }
+
+    /* --- ABOUT ---*/
+
+    .about-content {
+        display: block;
+        padding: 5rem 5rem;
+    }
+
+    .about-content .infos p {
+        font-size: 1.5rem;
+    }
+
+    .about-content .infos {
+        margin-bottom: 3rem;
+    }
+
+    .resume-and-logos {
+        display: flex;
+        
+    }
+
+    .about-content .formation-logos {
+        flex-flow: column nowrap;
+        gap: 4rem;
+        margin: 0;
+    }
+
+    .formation-logos .logo-container img {
+        /* height: 3.5rem; */
+        height: 7vw;
+    }
+
+    /* --- CONTACT --- */
+
+    .contact-form {
+        width: 100%;
+    }
+
+
+    /* ---- COMPONENTS ---- */
+
+    .navbar {
+        display: none;
+    }
+
+    /* -- BURGER -- */
+
+    .burger {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-end;
+    }
+
+    .click-catcher {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color:  rgba(0, 0, 0, 0.3);
+    }
+
+    .burger-icon {
+        margin: 2rem;
+        margin-bottom: 1rem;
+        width: 6rem;
+        height: 6rem;
+        background-color: var(--secondary);
+        border: 2px solid var(--font);
+        border-radius: 1.2rem;
+        padding: 1.5rem 1.2rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        z-index: 5;
+    }
+
+
+    .line {
+        background-color: var(--highlight);
+        border: 0.2rem solid var(--highlight);
+        border-radius: 0.2rem;
+        transition: all 0.2s ease-in-out;
+        width: 100%;
+        margin-left: auto;
+    }
+
+    .line-1.cross {
+        transform: translateX(-0.6rem) rotate(-45deg);
+        transform-origin: 100%;
+    }
+
+    .line-2.cross {
+        width: 2px;
+    }
+
+    .line-3.cross {
+        transform: translateX(-0.6rem) rotate(45deg);
+        transform-origin: 100%;
+    }
+
+
+    .burger-menu {
+        margin-right: 2rem;
+        width: 8rem;
+        height: 30rem;
+        background-color: var(--secondary);
+        border: 2px solid var(--font);
+        border-radius: 1.2rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .burger-menu.closed{
+        opacity: 0;
+        transform: translateX(2rem);
+        visibility: hidden;
+    }
+
+    .burger-menu-button {
+        width: 100%;
+        height: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .burger-menu svg {
+        width: 3rem;
+        fill: var(--font);
+    }
+}
+
+/* ----- MOBILE ----- */
+
+/* @media screen and (max-width: 700px), screen and (max-width:1200px) and (orientation:landscape) { */
+@media screen and (max-width: 700px) {
+
+    h2 {
+        font-size: 2rem;
+        margin: 3rem 1rem;
+    }
+
+    /* --- LANDING --- */
+
+    .landing-main {
+        border-radius: 0 0 2rem 2rem;
+    }
+
+    .landing-main h3 {
+        font-size: 1.5rem;
+    }
+
+    .landing-main p {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+    }
+
+    .landing-banner {
+        padding: 0 1rem;
+    }
+
+    .theme-btn {
+        width: 4rem;
+        height: 2rem;
+        align-self: flex-start;
+    }
+
+    .theme-indicator {
+        transform: translateX(100%) scale(1.01);
+    }
+
+    .language-btn img {
+        width: 2rem;
+        height: 1.4rem;
+    }
+
+    .see-work-container .strip-container p {
+        font-size: 1rem;
+    }
+
+    .linkedin-btn p {
+        display: none;
+    }
+
+    /* --- PROJECTS --- */
+
+    .project .presentation {
+        padding: 3rem 1rem;
+    }
+
+    .project h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .project p {
+        font-size: 1rem;
+    }
+
+    .project .design {
+        flex-direction: column-reverse;
+    }
+
+    .project .illustration {
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .project img {
+        width: 100%;
+    }
+
+    .project .tech-logos {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20%;
+    }
+
+    .project .tech-logos .express-tech {
+        margin: 0;
+    }
+
+    .project .tech-logos svg {
+        width: 2rem;
+    }
+
+    .project .tech-logos p {
+        font-size: 1rem;
+    }
+
+    .project .presentation .infos > p {
+        font-size: 1rem;
+    }
+
+    .project svg {
+        width: 1.8rem;
+    }
+
+    .project .detail-button {
+        width: 50%;
+    }
+
+    .project .detail-link {
+        margin: 1rem 0;
+    }
+
+    .project .detail-button p {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .project .details-banner {
+        transform: translateY(-3rem);
+    }
+
+    .project .drop-down-content ul h4 {
+        font-size: 1rem;
+    }
+
+    .project .drop-down-content ul li {
+        font-size: 0.8rem;
+        line-height: normal;
+    }
+
+    .project .drop-down-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 6rem;
+    }
+
+    .side-projects {
+        padding: 3rem 1rem;
+        height: auto;
+        padding-bottom: 1rem;
+    }
+
+    .side-projects .infos {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .catch-phrase {
+        font-size: 1rem;
+        margin: 0;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .snake-infos {
+        flex-direction: column;
+    }
+
+    .snake-card {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        padding: 1.5rem;
+    }
+
+    .snake-card h4 {
+        font-size: 1.8rem;
+    }
+
+    .snake-card > p {
+        font-size: 1rem;
+    }
+
+    /* --- ABOUT --- */
+
+    .about-content {
+        padding: 3rem 1rem;
+    }
+
+    .about-content .infos {
+        margin-bottom: 0;
+    }
+
+    .about-content .infos p {
+        font-size: 1rem;
+    }
+
+    .resume-and-logos {
+        flex-direction: column;
+    }
+
+    .about-content .formation-logos {
+        flex-flow: row nowrap;
+        gap: initial;
+        justify-content: space-evenly;
+        margin: 1rem 0;
+    }
+
+    .formation-logos .logo-container img {
+        min-height: 2rem;
+    }
+
+    .about-resume {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 350px;
+    }
+
+    /* --- CONTACT --- */ 
+
+    .form-container {
+        padding: 3rem 1rem;
+    }
+
+    .contact-form label {
+        font-size: 1.2rem;
+    }
+
+    .contact-form .input {
+        font-size: 1rem;
+    }
+
+    .contact-form .error-container {
+        margin: 0 auto 0.5rem 2rem;
+        font-size: 0.8rem;
+    }
+
+    .contact-form .display-container {
+        font-size: 1rem;
+    }
+
+
+    /* ---- COMPONENTS ---- */
+
+    .navbar-container {
+        height: 0;
+    }
+
+    /* --- BURGER --- */
+
+    .burger-icon {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 1rem;
+        padding: 1rem 0.8rem;
+        margin: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .line {
+        border: 0.1rem solid var(--highlight);
+    }
+
+    .line-1.cross {
+        transform: translateX(-0.3rem) rotate(-45deg);
+    }
+
+    .line-3.cross {
+        transform: translateX(-0.3rem) rotate(45deg);
+    }
+
+    .burger-menu {
+        margin-right: 1rem;
+        width: 5rem;
+        height: 15rem;
+    }
+
+    .burger-menu svg {
+        width: 2rem;
+    }
+
+}
 
 

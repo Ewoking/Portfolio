@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {ReactComponent as Home} from "../Resources/pictures/house.svg"
 import {ReactComponent as ReactLogo} from "../Resources/pictures/react.svg"

@@ -4,6 +4,8 @@ import {ReactComponent as ExpressLogo} from "../Resources/pictures/express.svg";
 import {ReactComponent as GithubLogo} from "../Resources/pictures/github.svg";
 import {ReactComponent as SquareArrow} from "../Resources/pictures/arrow-square.svg";
 import {ReactComponent as DetailCurveWeb} from "../Resources/pictures/detail-curve-web.svg";
+import {ReactComponent as DetailCurveTablet} from "../Resources/pictures/detail-curve-tablet.svg";
+import {ReactComponent as DetailCurveMobile} from "../Resources/pictures/detail-curve-mobile.svg";
 import { useEffect } from 'react';
 
 const Project = (props) => {
@@ -38,14 +40,13 @@ const Project = (props) => {
         dropDown.classList.toggle("opened");
     }
 
-    return(
-        <section className="project" id={"project" + props.id}>
+    const responsiveDisplay = () => {
+        if(props.media === "DESKTOP") return (<>
             <div className="presentation">
                 <div className="infos">
                     <h3>{props.display.content.projects[props.id].title}</h3>
                     <p>{props.display.content.projects[props.id].description}</p>
                 </div>
-                
                 <div className="design">
                     <div className="tech-logos">
                         <div className="react-tech">
@@ -64,6 +65,38 @@ const Project = (props) => {
                     </div>
                 </div>
             </div>
+        </>)
+        if(props.media === "TABLET" || props.media === "MOBILE") return (<>
+            <div className="presentation">
+                <div className="infos">
+                    <h3>{props.display.content.projects[props.id].title}</h3>
+                    <div className="design">
+                    <div className="tech-logos">
+                        <div className="react-tech">
+                            <ReactLogo/>
+                            <p>React</p>
+                        </div>
+                        {props.express && <div className="express-tech">
+                            <ExpressLogo/>
+                            <p>Express</p>
+                        </div>
+                        }
+                        
+                    </div>
+                    <div className="illustration">
+                        <img src={photo} alt={props.display.content.projects[props.id].altPicture} />
+                    </div>
+                </div>
+                    <p>{props.display.content.projects[props.id].description}</p>
+                </div>
+            </div>
+        </>)
+        
+    }
+
+    return(
+        <section className="project" id={"project" + props.id}>
+            {responsiveDisplay()}
             <div className="details">
                 <div className="details-content"></div>
                 <div className="details-banner">
@@ -74,7 +107,12 @@ const Project = (props) => {
                         </div>
                     </a>
                     <div className="detail-button" onClick={toggleDropDown}>
-                        <DetailCurveWeb/>
+                        {props.media === "DESKTOP" ?
+                        <DetailCurveWeb/> :
+                        props.media === "TABLET" ?
+                        <DetailCurveTablet/> :
+                        <DetailCurveMobile/>
+                        }
                         <p>Details</p>
                     </div>
                     <a href={props.display.content.projects[props.id].links.website}>
