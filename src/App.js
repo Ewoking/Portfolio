@@ -17,6 +17,8 @@ function App() {
   const mediaQuery = () => {
     
     // if (window.matchMedia("(max-width:700px)").matches || window.matchMedia("(max-width:1200px) and (orientation:landscape)").matches ) return "MOBILE";
+    if (window.matchMedia("(max-device-width:700px)").matches) return "MOBILE";
+    if (window.matchMedia("(max-device-width:1200px)").matches) return "TABLET";
     if (window.matchMedia("(max-width:700px)").matches) return "MOBILE";
     if (window.matchMedia("(max-width:1200px)").matches) return "TABLET";
     return "DESKTOP";

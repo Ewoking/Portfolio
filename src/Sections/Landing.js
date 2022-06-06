@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import {switchLanguage, switchTheme} from '../actions/display/displayActions';
 import logos from "../Resources/pictures/logos.svg";
 import  {ReactComponent as Moon} from "../Resources/pictures/moon.svg";
@@ -14,6 +14,44 @@ import {ReactComponent as Strip} from "../Resources/pictures/strip.svg";
 
 const Landing = (props) => {
 
+    const [refresh, setRefresh] = useState(false);
+
+
+    const setHeight = () => {
+        // console.log(props.media);
+        // Set landing in Fullscreen by default
+        let landing = document.querySelector(".landing");
+        landing.style.height = window.innerHeight + "px";
+
+        // Get available space
+        let computed = getComputedStyle((document.querySelector(".landing-main")));
+        let availableSpace = document.querySelector(".landing-main").clientHeight - parseInt(computed.paddingBottom) - parseInt(computed.paddingTop) ;
+        // console.log(availableSpace);
+
+        // Check if everything can be displayed, if not, set appropriate height
+        let effectiveHeight;
+        if(props.media === "DESKTOP") {
+            let elem = document.querySelector(".landing-main>div");
+            effectiveHeight = elem.scrollHeight;
+            // console.log("EFF : ", effectiveHeight);
+            if(effectiveHeight > availableSpace){
+                landing.style.height = parseInt(landing.style.height) + effectiveHeight - availableSpace + 160 + "px";
+                setRefresh(!refresh)
+            }
+        }else if (props.media === "TABLET" || props.media === "MOBILE"){
+            let elem1 = document.querySelector(".landing-main>div");
+            let elem2 = document.querySelector(".landing-main>p"); 
+            if(!elem1 || !elem2) return;
+            // console.log("elem1 : ", elem1.scrollHeight, "elem2 : ", elem2.scrollHeight);
+            effectiveHeight = elem1.scrollHeight + elem2.scrollHeight;
+            console.log(effectiveHeight);
+            console.log(availableSpace);
+            if(effectiveHeight > availableSpace - 60){
+                landing.style.height = parseInt(landing.style.height) + effectiveHeight - availableSpace + 160 + "px";
+                setRefresh(!refresh)
+            }
+        }
+    }
 
     useEffect(() => {
         // Setting landing screen Height, needed for mobile (navbar issue)
@@ -33,12 +71,13 @@ const Landing = (props) => {
         }
     }, [])
 
+    // useLayoutEffect(() => {
+    //     setHeight()
+    // })
 
 
-    const setHeight = () => {
-        let landing = document.querySelector(".landing");
-        landing.style.height = window.innerHeight + "px";
-    }
+
+    
 
 
     const onChangeLanguage = () => {
@@ -138,10 +177,10 @@ const Landing = (props) => {
                     </div>
                         
                 </div>
-                <div className="linkedin-btn">
-                    <p>{props.display.content.landing.linkedin}</p>
-                    <Linkedin className="linkedin-logo"/>
-                </div>
+                    <div className="linkedin-btn" onClick={()=>{window.location.href = 'https://www.linkedin.com/in/thomas-tenot-249a38210/'}}>
+                        <p>{props.display.content.landing.linkedin}</p>
+                        <Linkedin className="linkedin-logo"/>
+                    </div>
             </div>
         </section>
     )
