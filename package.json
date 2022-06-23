@@ -1,6 +1,7 @@
 {
-  "homepage": "https://ewoking.github.io/Portfolio/",
+  "homepage": "http://thomastenot.com",
   "name": "frontend",
+  "description": "Thomas Tenot Portfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
